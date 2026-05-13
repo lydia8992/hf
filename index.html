@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>禾豐綠能科技有限公司</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:  #1a5c2a;
+      --green-mid:   #2e7d42;
+      --green-light: #4caf65;
+      --green-pale:  #d4edda;
+      --blue-dark:   #0d3b6e;
+      --blue-mid:    #1a5fa8;
+      --blue-light:  #3a8fd1;
+      --blue-pale:   #cce3f5;
+      --beige-dark:  #c8b89a;
+      --beige-mid:   #e8dcc8;
+      --beige-light: #f5f0e8;
+      --beige-bg:    #faf8f4;
+      --text-dark:   #1e2a1e;
+      --text-mid:    #3a4a3a;
+      --text-light:  #6a7a6a;
+      --white:       #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+      background: var(--beige-bg);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(26, 92, 42, 0.96);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-brand img { height: 38px; width: auto; }
+    .nav-brand span {
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      font-size: .9rem;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: background .2s, color .2s;
+    }
+    .nav-links a:hover {
+      background: rgba(255,255,255,.15);
+      color: var(--white);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, #2e8b47 0%, #1e72a8 55%, #1a5a8a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 28px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,.3));
+    }
+    .hero h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.85);
+      font-size: clamp(.95rem, 2vw, 1.2rem);
+      max-width: 640px;
+      margin-bottom: 48px;
+      letter-spacing: .03em;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 52px;
+    }
+    .badge {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: var(--white);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: .85rem;
+      letter-spacing: .05em;
+      backdrop-filter: blur(4px);
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .stat-box {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 12px;
+      padding: 20px 32px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      min-width: 140px;
+    }
+    .stat-num {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #aeefc4;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.8);
+      margin-top: 4px;
+      letter-spacing: .04em;
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { padding: 80px 5%; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 50px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .section-lead {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin-bottom: 52px;
+    }
+    .divider {
+      width: 52px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-mid), var(--blue-mid));
+      border-radius: 2px;
+      margin: 14px 0 24px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--text-mid);
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+    .about-highlight {
+      background: linear-gradient(135deg, var(--green-pale), var(--blue-pale));
+      border-left: 4px solid var(--green-mid);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-top: 8px;
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: .95rem;
+    }
+    .about-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .info-card {
+      background: var(--beige-light);
+      border-radius: 10px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-icon i {
+      font-size: 1.1rem;
+      color: var(--green-dark);
+    }
+    .info-card h4 {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .info-card p {
+      font-size: .95rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--beige-bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      transition: transform .25s, box-shadow .25s;
+      border-top: 4px solid transparent;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+    }
+    .service-card.green { border-top-color: var(--green-mid); }
+    .service-card.blue  { border-top-color: var(--blue-mid); }
+    .service-card.teal  { border-top-color: #1a8a7a; }
+    .service-card.lime  { border-top-color: #7ab428; }
+    .svc-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .service-card.green .svc-icon { background: #e8f5eb; }
+    .service-card.blue  .svc-icon { background: #e0eef8; }
+    .service-card.teal  .svc-icon { background: #e0f4f1; }
+    .service-card.lime  .svc-icon { background: #f0f6e0; }
+    .svc-icon i {
+      font-size: 1.5rem;
+    }
+    .service-card.green .svc-icon i { color: var(--green-mid); }
+    .service-card.blue  .svc-icon i { color: var(--blue-mid); }
+    .service-card.teal  .svc-icon i { color: #1a8a7a; }
+    .service-card.lime  .svc-icon i { color: #7ab428; }
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: .9rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--white); }
+    .region-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .tab-btn {
+      padding: 8px 22px;
+      border-radius: 50px;
+      border: 2px solid var(--beige-dark);
+      background: transparent;
+      color: var(--text-mid);
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+      color: var(--white);
+    }
+    .project-list { display: none; }
+    .project-list.active { display: flex; flex-direction: column; gap: 20px; }
+    .project-item {
+      background: var(--beige-light);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .project-year {
+      background: var(--green-mid);
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .project-header h3 {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .toggle-icon {
+      color: var(--text-light);
+      transition: transform .25s;
+      font-size: .9rem;
+    }
+    .project-item.open .toggle-icon { transform: rotate(180deg); }
+    .project-body {
+      display: none;
+      padding: 0 24px 20px;
+    }
+    .project-item.open .project-body { display: block; }
+    .project-body ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .project-body li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .93rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .project-body li .li-check {
+      color: var(--green-mid);
+      font-size: .85rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    /* ─── IMPACT ─── */
+    #impact {
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--blue-dark) 100%);
+      color: var(--white);
+    }
+    #impact .section-tag { background: rgba(255,255,255,.15); color: var(--white); }
+    #impact .section-title { color: var(--white); }
+    #impact .section-lead { color: rgba(255,255,255,.75); }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .impact-card {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+    .impact-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #aeefc4;
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .impact-unit {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+    }
+    .impact-label {
+      margin-top: 8px;
+      font-size: .85rem;
+      color: rgba(255,255,255,.7);
+      letter-spacing: .03em;
+    }
+    .impact-desc {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .impact-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .impact-feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .impact-feature-icon i {
+      font-size: 1.3rem;
+      color: #aeefc4;
+    }
+    .impact-feature h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .impact-feature p {
+      font-size: .88rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+    }
+
+    /* ─── COVERAGE ─── */
+    #coverage { background: var(--beige-bg); }
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .city-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+      transition: transform .2s;
+    }
+    .city-card:hover { transform: translateY(-4px); }
+    .city-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .city-icon i {
+      font-size: 1.2rem;
+      color: var(--blue-mid);
+    }
+    .city-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .city-tag {
+      font-size: .75rem;
+      color: var(--text-light);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon i {
+      font-size: 1.1rem;
+      color: var(--green-dark);
+    }
+    .contact-item h4 {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--text-light);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .contact-item p {
+      font-size: .95rem;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      letter-spacing: .05em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      border: 2px solid var(--beige-mid);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .93rem;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: var(--beige-bg);
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--green-mid);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--green-mid), var(--blue-mid));
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 13px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: .05em;
+      transition: opacity .2s, transform .2s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { opacity: .88; transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 36px 5%;
+    }
+    footer .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    footer img { height: 32px; width: auto; filter: brightness(10); }
+    footer .brand-name {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    footer p { font-size: .85rem; }
+    footer .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+    footer .footer-links a {
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .82rem;
+      transition: color .2s;
+    }
+    footer .footer-links a:hover { color: var(--white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .form-row { grid-template-columns: 1fr; }
+      .impact-desc { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="nav-brand" href="#hero">
+    <img src="logo.png" alt="禾豐綠能" />
+    <span>禾豐綠能科技有限公司</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#projects">執行成果</a></li>
+    <li><a href="#impact">節能成效</a></li>
+    <li><a href="#coverage">服務區域</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero-logo" src="logo.png" alt="禾豐綠能科技" />
+  <h1>禾豐綠能科技有限公司</h1>
+  <p class="hero-sub">協助政府推動節能減碳，建構低碳生活圈<br>深耕臺灣，邁向永續能源未來</p>
+  <div class="hero-badges">
+    <span class="badge">節電推動</span>
+    <span class="badge">能源診斷</span>
+    <span class="badge">低碳城市</span>
+    <span class="badge">智慧用電</span>
+    <span class="badge">淨零碳排</span>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-box">
+      <span class="stat-num">10+</span>
+      <span class="stat-label">年服務經驗</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">8</span>
+      <span class="stat-label">服務縣市</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">1萬+</span>
+      <span class="stat-label">稽查訪視戶數</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-num">100+</span>
+      <span class="stat-label">高能用戶診斷</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title">關於禾豐綠能</h2>
+        <div class="divider"></div>
+        <p>
+          禾豐綠能科技有限公司成立於民國102年12月，成立目的在於協助政府推動「節能減碳」及建構「低碳生活圈」相關工作。
+        </p>
+        <p>
+          歷年來執行方案遍布新竹市、雲林縣、嘉義縣、台南市、高雄市、屏東縣、臺東縣及基隆市等縣市，實績遍布南北各縣市，成果相當豐碩。
+        </p>
+        <p>
+          民國106年起，因應極端氣候影響造成夏季電力需求逐年增加，公司配合中央擬訂之節電方案，積極參與協助地方政府推動節電相關工作至今。
+        </p>
+        <div class="about-highlight">
+          藉由常年累積執行「節電減碳」經驗，協助地方政府持續推動縣市節電工作，共同打造永續經營友善環境。
+        </div>
+      </div>
+      <div class="about-info-cards">
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <h4>公司全名</h4>
+            <p>禾豐綠能科技有限公司</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <div>
+            <h4>成立時間</h4>
+            <p>民國102年12月（2013年）</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div>
+            <h4>核心使命</h4>
+            <p>協助政府推動節能減碳、建構低碳生活圈</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <h4>服務範圍</h4>
+            <p>新竹市・基隆市・雲林縣・嘉義縣・台南市・高雄市・屏東縣・臺東縣</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div>
+            <h4>企業願景</h4>
+            <p>永續經營，打造低碳友善環境</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <span class="section-tag">Services</span>
+    <h2 class="section-title">服務項目</h2>
+    <div class="divider"></div>
+    <p class="section-lead">提供全方位節電推動服務，從法規稽查、能源診斷到智慧用電，協助政府與企業達成節能目標。</p>
+    <div class="services-grid">
+      <div class="service-card green">
+        <div class="svc-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <h3>指定能源用戶稽查</h3>
+        <p>針對20類指定能源用戶進行現場訪視，稽查冷氣不外洩、禁用鹵素燈、室內冷氣溫度限值等法規遵循情形，確保節電規定落實執行。</p>
+      </div>
+      <div class="service-card blue">
+        <div class="svc-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>高能源用戶能源診斷</h3>
+        <p>針對契約容量較大之高能源用戶進行現場節能健檢，分析電力、空調、照明等耗能設備，提供具體改善建議與節電潛力評估報告。</p>
+      </div>
+      <div class="service-card teal">
+        <div class="svc-icon"><i class="fa-solid fa-tag"></i></div>
+        <h3>能源標章標示稽查</h3>
+        <p>稽查電器零售業、大賣場等場所之節能標章及能源效率標示張貼合規性，輔導業者正確張貼能源效率標示，保障消費者知情權益。</p>
+      </div>
+      <div class="service-card lime">
+        <div class="svc-icon"><i class="fa-solid fa-house"></i></div>
+        <h3>住宅用電健檢服務</h3>
+        <p>提供到府用電健檢服務，結合家電補助計畫，協助住宅用戶了解用電行為，提供節能改善建議，推廣雲端用電健檢服務平台。</p>
+      </div>
+      <div class="service-card green">
+        <div class="svc-icon"><i class="fa-solid fa-map"></i></div>
+        <h3>節電藍圖規劃</h3>
+        <p>分析縣市人口結構、產業發展與歷年用電狀況，協助地方政府制訂節電藍圖與推動措施，為中長期節電政策提供科學依據。</p>
+      </div>
+      <div class="service-card blue">
+        <div class="svc-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3>智慧用電數據分析</h3>
+        <p>運用GIS空間分析與用電數據，繪製能源地圖，分析各行政區用電熱點，建立住商部門能源消費細部資料，支援政策規劃。</p>
+      </div>
+      <div class="service-card teal">
+        <div class="svc-icon"><i class="fa-solid fa-school"></i></div>
+        <h3>機關學校節能輔導</h3>
+        <p>針對機關學校進行用電安全診斷與節能健檢，結合設備汰換補助計畫，協助盤點照明、空調等耗能設備，提升公共設施節能效益。</p>
+      </div>
+      <div class="service-card lime">
+        <div class="svc-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h3>淨零碳管理輔導</h3>
+        <p>協助企業進行節能診斷及淨零碳管理輔導，依碳排係數計算減碳效益，協助企業達成淨零排放目標，因應ESG趨勢。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="section-tag">Projects</span>
+    <h2 class="section-title">執行成果</h2>
+    <div class="divider"></div>
+    <p class="section-lead">多年來承接政府委辦計畫，在各縣市累積豐碩執行成果。</p>
+
+    <div class="region-tabs">
+      <button class="tab-btn active" onclick="switchTab('hsinchu', this)">新竹市</button>
+      <button class="tab-btn" onclick="switchTab('keelung', this)">基隆市</button>
+    </div>
+
+    <!-- 新竹市 -->
+    <div class="project-list active" id="tab-hsinchu">
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">107年</span>
+          <h3>新竹市設備汰換與智慧用電補助審查及節電推動計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>完成20類指定能源用戶落實節電規定訪視 <strong>1,500處</strong>，冷氣不外洩合格率99.3%、禁用鹵素燈合格率99.4%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成新竹市電器零售商標章及標示稽查 <strong>90處</strong>，大賣場標章及標示稽查 <strong>10處</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成能源診斷本市高能源用戶 <strong>12處</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>協助新竹市政府制訂「新竹市發展低碳綠色城市自治條例」，彙整節電規範與用電大戶太陽光電義務規定。</li>
+            <li><i class="fa-solid fa-check li-check"></i>運用ArcGIS繪製示範住戶健檢用電戶分布圖、住商部門高壓用電戶分布圖等能源地圖，提供空間分析功能。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">108年</span>
+          <h3>新竹市製造業節電推動計畫 & 智慧節電推動與推廣計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>完成20類指定能源用戶落實節電規定訪視 <strong>1,508處</strong>，冷氣不外洩及禁用鹵素燈合格率均達 <strong>100%</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成電器零售商標章及標示稽查90處及大賣場10處，節能標章合格率99.57%、能效分級標示合格率99.93%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成能源診斷高能源用戶 <strong>10處</strong>，推估節電潛力約7.73～23.18百萬度/年。</li>
+            <li><i class="fa-solid fa-check li-check"></i>提供25所國中小學及5處高用電機關進行節能健檢及用電安全診斷。</li>
+            <li><i class="fa-solid fa-check li-check"></i>結合家電補助計畫，提供 <strong>300戶</strong>住宅到府用電健檢及節電禮券，推廣雲端用電健檢服務平台。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">109年</span>
+          <h3>新竹市製造業節電推動計畫 & 節電基礎工作計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>完成20類指定能源用戶訪視 <strong>1,500處</strong>，冷氣不外洩合格率100%、禁用鹵素燈合格率99.9%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查 <strong>50家</strong>電器零售商標章標示，總計4,232個產品。</li>
+            <li><i class="fa-solid fa-check li-check"></i>診斷 <strong>10家</strong>高能源用戶，預估每年可節省約 <strong>1,936,108度</strong>，約節省電費7,334,544元。</li>
+            <li><i class="fa-solid fa-check li-check"></i>針對新竹市所轄20處學校能源用戶進行現場節電技術診斷，配合校園降溫計畫盤點設備汰換補助數量。</li>
+            <li><i class="fa-solid fa-check li-check"></i>繪製新竹市高壓用電戶用電分布圖及節電熱區樹狀圖，供節電政策推動參考。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">111年</span>
+          <h3>新竹市節電夥伴補助計畫（第一期・第二期）& 節能治理與推廣計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>輔導20類指定能源用戶落實節電規定 <strong>406家次</strong>（兩期合計），各項合格率均達100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查大賣場及電器零售業（含廚具行）共 <strong>40家次</strong>，能源效率標示及節能標章合格率均達100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>第一期協助10戶大型契約用電戶進行節能輔導，約可有效節電 <strong>3,718,876度/年</strong>，減碳約1,892,908 kgCO₂e/年。</li>
+            <li><i class="fa-solid fa-check li-check"></i>第二期協助20戶進行節能輔導，約可有效節電 <strong>670,660度/年</strong>，減碳約331,977 kgCO₂e/年。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成集合式住宅節能輔導診斷服務 <strong>20處</strong>，提出37個改善建議，節電潛力205,881度/年，節電效益約75萬元。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">112年</span>
+          <h3>新竹市節電夥伴補助計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>輔導20類指定能源用戶落實節電規定 <strong>350家次</strong>，冷氣不外洩、禁用鹵素燈、室內溫度限值合格率均達 <strong>100%</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>針對 <strong>12家</strong>高能源用戶提出節能診斷，建議改善空調、照明、電梯等設備，預估每年可節省約 <strong>189,384度</strong>，減碳約93,556 kgCO₂e/年。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">113年</span>
+          <h3>新竹市製造業節電夥伴補助計畫</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>完成20類法令查核及適溫宣導訪視 <strong>402家</strong>，各項合格率均達 <strong>100%</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查大賣場及電器零售業（廚具行）共 <strong>35家次</strong>，能源效率標示及節能標章合格率均達100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>針對 <strong>8處</strong>高能源用電企業進行節能診斷及淨零碳管理輔導，預估可節電約 <strong>425萬4,212度/年</strong>，約可減碳 <strong>210萬1,580 kgCO₂e/年</strong>。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 基隆市 -->
+    <div class="project-list" id="tab-keelung">
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">第1期</span>
+          <h3>基隆市縣市共推住商節電行動（第1期）</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>實地稽查20類指定能源用戶共 <strong>104家</strong>，冷氣不外洩合格率98.1%、禁用鹵素燈合格率100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查電器零售業及大賣場能源標章及效率標示共 <strong>20家</strong>，能源效率標示整體張貼率100%、正確率99.67%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>問卷抽樣調查20類製造業營業店家與公務機關，共發出逾562份調查表，回收 <strong>382份</strong>，建立在地住商部門能源消費細部資料。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">第2期</span>
+          <h3>基隆市縣市共推住商節電行動（第2期）</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>實地稽查20類指定能源用戶共 <strong>406家</strong>，冷氣不外洩及禁用鹵素燈合格率均達100%，冷氣溫度≥25度合格率97.78%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查電器零售業及大賣場能源標章及效率標示共 <strong>40家</strong>，能源效率標示整體正確率94.27%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>問卷抽樣調查基隆市契約容量51kW以上之廠家，總計發放107份問卷，回收 <strong>50份</strong>，掌握能源消耗熱點及節能意願。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">第3期</span>
+          <h3>基隆市縣市共推住商節電行動（第3期）</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>實地稽查20類指定能源用戶共 <strong>150家</strong>，冷氣不外洩及禁用鹵素燈合格率100%，冷氣溫度≥25度合格率96%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查電器零售業及大賣場共 <strong>30家</strong>，能源效率標示整體正確率100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>節能診斷基隆市高能源用戶共 <strong>5處</strong>，推估總計可每年省下約 <strong>198,239 kWh</strong>，溫室氣體減量 <strong>100.9公噸</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>規劃後續節電推動方向，涵蓋「法規制定面」、「政策宣導面」、「技術輔導面」、「設備汰換面」、「能源教育面」五大面向。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">113年（一）</span>
+          <h3>基隆市節電夥伴節能治理與推廣</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>實地稽查20類指定能源用戶共 <strong>215家</strong>，冷氣不外洩、禁用鹵素燈、冷氣溫度≥25度合格率均達 <strong>100%</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查電器零售業及大賣場共 <strong>10家</strong>，能源效率標示張貼及正確率均達100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>協助武崙國小、武崙國中、北都汽車、仁愛之家、博愛仁愛之家、金金商務旅館等 <strong>10處</strong>高能源用戶進行節能診斷，節電潛力約可減少每年 <strong>97,930度</strong>用電。</li>
+            <li><i class="fa-solid fa-check li-check"></i>規劃結合「臺灣2050淨零排放路徑及策略」五大措施，研析節能行為科學推力，滾動調整基隆市中長期節電政策。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header" onclick="toggleProject(this)">
+          <span class="project-year">113年（二）</span>
+          <h3>基隆市節電夥伴節能治理與推廣（二）</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <div class="project-body">
+          <ul>
+            <li><i class="fa-solid fa-check li-check"></i>實地稽查20類指定能源用戶共 <strong>205家</strong>，冷氣不外洩、禁用鹵素燈、冷氣溫度≥26度合格率均達 <strong>100%</strong>。</li>
+            <li><i class="fa-solid fa-check li-check"></i>稽查電器零售業及大賣場共 <strong>21家</strong>，能源效率標示張貼及正確率均達100%。</li>
+            <li><i class="fa-solid fa-check li-check"></i>完成非營利社福機構及經濟弱勢家庭節能診斷 <strong>30處</strong>，協助汰換老舊設備為節能設備，預計每年節電量約 <strong>38,102度</strong>。</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner">
+    <span class="section-tag">Impact</span>
+    <h2 class="section-title">節能成效</h2>
+    <div class="divider" style="background:rgba(255,255,255,.4)"></div>
+    <p class="section-lead">多年執行累積的具體節能與減碳成果數據。</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <span class="impact-number">425萬+</span>
+        <span class="impact-unit">度/年</span>
+        <p class="impact-label">單一計畫最高節電潛力</p>
+      </div>
+      <div class="impact-card">
+        <span class="impact-number">210萬+</span>
+        <span class="impact-unit">kgCO₂e/年</span>
+        <p class="impact-label">單一計畫最高減碳效益</p>
+      </div>
+      <div class="impact-card">
+        <span class="impact-number">99%+</span>
+        <span class="impact-unit">合格率</span>
+        <p class="impact-label">歷年指定能源用戶<br>節電規定平均合格率</p>
+      </div>
+      <div class="impact-card">
+        <span class="impact-number">300+</span>
+        <span class="impact-unit">戶</span>
+        <p class="impact-label">住宅到府用電健檢</p>
+      </div>
+      <div class="impact-card">
+        <span class="impact-number">100+</span>
+        <span class="impact-unit">處</span>
+        <p class="impact-label">高能源用戶能源診斷</p>
+      </div>
+    </div>
+    <div class="impact-desc">
+      <div class="impact-feature">
+        <div class="impact-feature-icon"><i class="fa-solid fa-temperature-half"></i></div>
+        <div>
+          <h4>減少碳排放</h4>
+          <p>透過系統性能源診斷與改善建議，協助企業及機關有效降低碳排，呼應臺灣2050淨零排放目標。</p>
+        </div>
+      </div>
+      <div class="impact-feature">
+        <div class="impact-feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div>
+          <h4>節電效益顯著</h4>
+          <p>各計畫均提供量化節電潛力評估，協助委辦機關掌握具體節電成效，作為後續政策推動依據。</p>
+        </div>
+      </div>
+      <div class="impact-feature">
+        <div class="impact-feature-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <div>
+          <h4>數據驅動決策</h4>
+          <p>整合台電用電資料、GIS空間分析與問卷調查，建立在地能源消費細部資料庫，支援精準節電政策。</p>
+        </div>
+      </div>
+      <div class="impact-feature">
+        <div class="impact-feature-icon"><i class="fa-solid fa-handshake"></i></div>
+        <div>
+          <h4>關懷弱勢族群</h4>
+          <p>113年基隆市計畫特別針對非營利社福機構及經濟弱勢家庭進行節能診斷，提供公平永續的節能服務。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage">
+  <div class="section-inner">
+    <span class="section-tag">Coverage</span>
+    <h2 class="section-title">服務區域</h2>
+    <div class="divider"></div>
+    <p class="section-lead">足跡遍布臺灣北中南東各縣市，深耕在地節電服務。</p>
+    <div class="coverage-grid">
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-city"></i></div>
+        <div class="city-name">新竹市</div>
+        <div class="city-tag">107–113年 長期合作</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-anchor"></i></div>
+        <div class="city-name">基隆市</div>
+        <div class="city-tag">第1–3期 + 113年計畫</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+        <div class="city-name">雲林縣</div>
+        <div class="city-tag">節能減碳推動</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-tree"></i></div>
+        <div class="city-name">嘉義縣</div>
+        <div class="city-tag">低碳生活圈</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-landmark"></i></div>
+        <div class="city-name">台南市</div>
+        <div class="city-tag">節電推動計畫</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-building-columns"></i></div>
+        <div class="city-name">高雄市</div>
+        <div class="city-tag">節電推動計畫</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-sun"></i></div>
+        <div class="city-name">屏東縣</div>
+        <div class="city-tag">節能減碳推動</div>
+      </div>
+      <div class="city-card">
+        <div class="city-icon"><i class="fa-solid fa-mountain"></i></div>
+        <div class="city-name">臺東縣</div>
+        <div class="city-tag">節能減碳推動</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="section-tag">Contact</span>
+    <h2 class="section-title">聯絡我們</h2>
+    <div class="divider"></div>
+    <p class="section-lead">歡迎政府機關、企業及各界夥伴與我們聯繫，共同推動節能永續。</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <h4>公司名稱</h4>
+            <p>禾豐綠能科技有限公司</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div>
+            <h4>專業服務</h4>
+            <p>節電推動・能源診斷・智慧用電・碳管理輔導</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div>
+            <h4>合作對象</h4>
+            <p>中央及地方政府機關、企業、學校、公寓大廈</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div>
+            <h4>服務理念</h4>
+            <p>協助達成節能減碳目標，共創永續低碳環境</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>姓名 *</label>
+            <input type="text" placeholder="請輸入姓名" required />
+          </div>
+          <div class="form-group">
+            <label>單位 / 機關</label>
+            <input type="text" placeholder="公司或機關名稱" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>聯絡電話</label>
+            <input type="tel" placeholder="請輸入電話" />
+          </div>
+          <div class="form-group">
+            <label>電子信箱 *</label>
+            <input type="email" placeholder="請輸入Email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>服務需求</label>
+          <select>
+            <option value="">請選擇服務類型</option>
+            <option>指定能源用戶稽查</option>
+            <option>高能源用戶能源診斷</option>
+            <option>能源標章標示稽查</option>
+            <option>住宅用電健檢服務</option>
+            <option>節電藍圖規劃</option>
+            <option>智慧用電數據分析</option>
+            <option>機關學校節能輔導</option>
+            <option>淨零碳管理輔導</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>訊息內容 *</label>
+          <textarea placeholder="請描述您的需求或問題..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">送出詢問</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="logo.png" alt="禾豐綠能" />
+    <span class="brand-name">禾豐綠能科技有限公司</span>
+  </div>
+  <div class="footer-links">
+    <a href="#about">關於我們</a>
+    <a href="#services">服務項目</a>
+    <a href="#projects">執行成果</a>
+    <a href="#impact">節能成效</a>
+    <a href="#coverage">服務區域</a>
+    <a href="#contact">聯絡我們</a>
+  </div>
+  <p>© 2024 禾豐綠能科技有限公司 ｜ 協助政府推動節能減碳，共創永續低碳未來</p>
+</footer>
+
+<script>
+  function switchTab(region, btn) {
+    document.querySelectorAll('.project-list').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + region).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleProject(header) {
+    const item = header.parentElement;
+    item.classList.toggle('open');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> 已送出';
+    btn.style.background = 'var(--green-mid)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '送出詢問';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
